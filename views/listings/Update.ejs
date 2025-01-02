@@ -1,0 +1,45 @@
+<%layout("/layouts/template")%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+        <h2>Edit your Post</h2>
+     <form method="POST" action="/listings/<%=id%>?_method=PUT" novalidate class="needs-validation">
+    <div class="mb-3">
+        <label for="Title" class="form-lable">Title</label>
+         <input name="listing[title]" value="<%=user.title %>" type="text" class="form-control">
+         <div class="valid-feedback">Title looks Good</div>
+           </div>
+     <div class="mb-3">
+            <label for="image" class="form-lable">Image/URL</label>
+            <input class="form-control" name="listing[image]" value="<%=user.image%>" type="text">
+            <div class="valid-feedback">You can Update after Save</div>
+         </div>
+    <div class="mb-3">
+        <label for="Description" class="form-lable">Description</label>
+        <textarea class="form-control" name="listing[description]" type="text"><%=user.description%></textarea>
+      
+        <div class="valid-feedback"> Description looks Good</div>
+        <div class="invalid-feedback">Please Enter a short Description</div></div>
+    <div class="mb-3">
+         <label for="Price" class="form-lable">Price</label>
+        <input class="form-control" name="listing[price]" type="number" value="<%=user.price %>">
+        <div class="valid-feedback">Price looks Good</div>
+        <div class="invalid-feedback">Please Enter price</div>
+    </div>
+    <div class="mb-3">
+        <label for="Location" class="form-lable">Location</label>
+        <input class="form-control" name="listing[location]" type="text" value="<%=user.location %>">
+        <div class="valid-feedback">Location looks Good</div>
+        <div class="invalid-feedback">Please Enter Location</div>
+    </div> 
+    <div class="mb-3">
+        <label for="Country" class="form-lable">Country</label>
+        <input class="form-control" name="listing[country]" type="text" value="<%=user.country %>">
+        <div class="valid-feedback">Country looks Good</div>
+        <div class="invalid-feedback">Please Enter Country</div>
+    </div>
+    <button class="btn btn-dark">Update</button>
+    </form>
+</div>
+</div>
+</body>

@@ -1,0 +1,16 @@
+.f_container{
+    height:5rem;
+    display: flex;
+    background-color: aliceblue;
+    flex-direction: column;
+    align-items: center;
+
+}
+.f_social_icon i{
+    margin-left: 0.5rem;
+    opacity: 0.9;
+}
+.f_social_icon i:hover{
+    opacity: 1;
+  cursor: pointer;
+}
