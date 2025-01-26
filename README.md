@@ -40,6 +40,7 @@ This is a full-stack Airbnb clone project built using modern web development tec
 - **Pbkdf2**: For password hashing algorithm.
 - **express-session**: For session management.
 - **connect-flash**: For displaying flash messages.
+- **MVC**: for clean code and easily understand.
 
 ## Installation and Setup
 
