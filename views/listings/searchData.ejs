@@ -1,0 +1,46 @@
+<%layout('/layouts/template') %>
+<!-- Main Row Container -->
+<div class="row">
+    <div class="col-8 offset-2">
+        <!-- Loop Through Each Info in searchInfo -->
+        <% for(Info of searchInfo){ %>
+        
+        <!-- Heading for Listing Details -->
+        <h2>Listing Detail</h2>
+        
+        <!-- Display Owner's Email -->
+        <p>Ownername: <%=Info.owner.email %></p>
+        
+        <!-- Card Component for Each Listing -->
+        <div class="card listing-card">
+            <!-- Display Listing Image -->
+            <img src="<%=Info.image.url%>" class="card-img-top show-img" alt="listing">
+            
+            <!-- Card Body -->
+            <div class="card-body">
+                <!-- Title of the Listing -->
+                <h5 class="card-title"><%=Info.title%></h5>
+                
+                <!-- Listing Details -->
+                <p class="card-text">
+                    <br>
+                    <!-- Description of the Listing -->
+                    <b>Description:</b> <%=Info.description %>
+                    <br>
+                    
+                    <!-- Price of the Listing -->
+                    <b>Price:</b> <%=Info.price.toLocaleString("en-IN")%>
+                    <br>
+                    
+                    <!-- Location of the Listing -->
+                    <b>Location:</b> <%=Info.location%>
+                    <br>
+                    
+                    <!-- Country of the Listing -->
+                    <b>Country:</b> <%=Info.country %>
+                </p>
+            </div>
+        </div>
+        <% } %> <!-- End of Loop -->
+    </div>
+</div>

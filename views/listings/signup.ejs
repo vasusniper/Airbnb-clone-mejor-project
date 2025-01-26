@@ -1,29 +1,47 @@
 <%layout("/layouts/template")%>
 <body>
+    <!-- Main container for the signup form -->
     <div class="row">
+        <!-- Center the form on the page -->
         <div class="col-6 offset-3">
+            <!-- Signup form heading -->
             <h3>Signup Wanderlust</h3>
-    <form method="POST" action="/signup" class="needs-validation" novalidate>
-        <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" placeholder="Email" name="email"  required>
-        <div class="valid-feedback"> looks Good</div>
-        <div class="invalid-feedback">Please Enter Email</div>
+
+            <!-- Signup form with POST method -->
+            <form method="POST" action="/signup" class="needs-validation" novalidate>
+                <!-- Email field -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <!-- Input field for email -->
+                    <input type="email" class="form-control" placeholder="Email" name="email" required>
+                    <!-- Validation feedback messages -->
+                    <div class="valid-feedback">Looks good</div>
+                    <div class="invalid-feedback">Please enter a valid email</div>
+                </div>
+
+                <!-- Username field -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <!-- Input field for username -->
+                    <input type="text" class="form-control" placeholder="Username" name="username" required>
+                    <!-- Validation feedback messages -->
+                    <div class="valid-feedback">Looks good</div>
+                    <div class="invalid-feedback">Please enter a username</div>
+                </div>
+
+                <!-- Password field -->
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Password</label>
+                    <!-- Input field for password -->
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                    <!-- Validation feedback messages -->
+                    <div class="valid-feedback">Looks good</div>
+                    <div class="invalid-feedback">Please enter a password</div>
+                </div>
+
+                <!-- Submit button -->
+                <button class="btn btn-success">Signup</button>
+            </form>
+        </div>
     </div>
-    <div class="mb-3">
-    <label for="username" class="form-label">Username</label>
-       <input type="text" class="form-control" placeholder="Username" name="username" required>
-       <div class="valid-feedback">looks Good</div>
-       <div class="invalid-feedback">Please Enter Username</div>
-       </div>
-       <div class="mb-3">
-       <label for="Password" class="form-label">Password</label>
-        <input type="password" class="form-control" placeholder="Password" name="password" required>
-        <div class="valid-feedback">looks Good</div>
-        <div class="invalid-feedback">Please Enter Password</div>
-    </div>
-        <button class="btn btn-success">Signup</button>
-    </form>
-</div>
-</div>
 </body>

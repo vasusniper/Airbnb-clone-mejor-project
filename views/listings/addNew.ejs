@@ -1,51 +1,84 @@
-<%layout('/layouts/template') %>
+<%layout('/layouts/template') %> <!-- Links to a layout template for consistent design -->
 <body>
     <div class="row">
-        <div class="col-8 offset-2">
-            <div><h3>Create New listing</h3></div>
-    <form method="POST" action="/listings" class="needs-validation" novalidate>
-       <div class="mb-3">
-        <label for="title" class="form-lable">Title</label>
-        <input class="form-control" name="listing[title]" placeholder="Post Title" type="text" required>
-        <div class="valid-feedback">Title looks Good</div>
-        <div class="invalid-feedback">Please Enter Title</div>
-       </div>
+        <div class="col-8 offset-2"> <!-- Centers the form on the page -->
+            <div><h3>Create New Listing</h3></div>
+            
+            <!-- Form for submitting a new listing -->
+            <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+               
+               <!-- Title field -->
+               <div class="mb-3">
+                   <label for="title" class="form-label">Title</label>
+                   <input class="form-control" name="listing[title]" placeholder="Post Title" type="text" required>
+                   <div class="valid-feedback">Title looks Good</div>
+                   <div class="invalid-feedback">Please Enter Title</div>
+               </div>
 
-       <div class="mb-3">
-        <label for="Image" class="form-lable">Image-url</label>
-        <input class="form-control" name="listing[image]" placeholder="Enter image/url" type="text">
-       </div>
+               <!-- Image upload field -->
+               <div class="mb-3">
+                   <label for="Image" class="form-label">Choose photo</label>
+                   <input class="form-control" name="listing[image]" type="file" required>
+                   <div class="valid-feedback">Looks Good</div>
+                   <div class="invalid-feedback">Please Select an Image</div>
+               </div>
 
-       <div class="mb-3">
-        <label for="Description" class="form-lable">Description</label>
-        <textarea class="form-control" name="listing[description]" placeholder="Enter description" type="text" required></textarea>
-        <div class="valid-feedback">Description looks Good</div>
-        <div class="invalid-feedback">Please Enter Description</div>
-      </div>
-      <div class="row">
-       <div class="mb-3 col-md-4 ">
-        <label for="Price" class="form-lable">Price</label>
-        <input class="form-control" name="listing[price]" placeholder="1200" type="number" required>
-       
-        <div class="valid-feedback">Price looks Good</div>
-        <div class="invalid-feedback">Please Enter Price</div>
-      </div>
-     <div class="mb-3 col-md-8">
-        <label for="Location" class="form-lable">Location</label>
-        <input class="form-control" name="listing[location]" placeholder="Noida, Gurgaon" type="text" required>
-        <div class="valid-feedback">Location looks Good</div>
-        <div class="invalid-feedback">Please Enter Location</div>
-      </div>
+               <!-- Description field -->
+               <div class="mb-3">
+                   <label for="Description" class="form-label">Description</label>
+                   <textarea class="form-control" name="listing[description]" placeholder="Enter description" required></textarea>
+                   <div class="valid-feedback">Description looks Good</div>
+                   <div class="invalid-feedback">Please Enter Description</div>
+               </div>
+
+               <div class="row">
+                   <!-- Price field -->
+                   <div class="mb-3 col-md-3">
+                       <label for="Price" class="form-label">Price</label>
+                       <input class="form-control" name="listing[price]" placeholder="1200" type="number" required>
+                       <div class="valid-feedback">Price looks Good</div>
+                       <div class="invalid-feedback">Please Enter Price</div>
+                   </div>
+
+                   <!-- Category dropdown -->
+                   <div class="mb-3 col-md-3">
+                       <label for="Category" class="form-label">Category</label>
+                       <select class="form-select" name="listing[category]" id="categories" required>
+                           <option value="" selected disabled>Category</option>
+                           <option value="Trending">Trending</option>
+                           <option value="Rooms">Rooms</option>
+                           <option value="Castle">Castle</option>
+                           <option value="Amazing pools">Amazing pools</option>
+                           <option value="Camping">Camping</option>
+                           <option value="Treehouse">Treehouse</option>
+                           <option value="Mountain">Mountain</option>
+                           <option value="Beach">Beach</option>
+                           <option value="Luxury Stay">Luxury Stay</option>
+                           <option value="Cave">Cave</option>
+                           <option value="Desert">Desert</option>
+                       </select>
+                   </div>
+
+                   <!-- Location field -->
+                   <div class="mb-3 col-md-6">
+                       <label for="Location" class="form-label">Location</label>
+                       <input class="form-control" name="listing[location]" placeholder="Noida, Gurgaon" type="text" required>
+                       <div class="valid-feedback">Location looks Good</div>
+                       <div class="invalid-feedback">Please Enter Location</div>
+                   </div>
+               </div>
+
+               <!-- Country field -->
+               <div class="mb-3">
+                   <label for="Country" class="form-label">Country</label>
+                   <input class="form-control" name="listing[country]" placeholder="India" type="text" required>
+                   <div class="valid-feedback">Country looks Good</div>
+                   <div class="invalid-feedback">Please Enter Country</div>
+               </div>
+
+               <!-- Submit button -->
+               <button class="btn btn-dark">Add</button>
+           </form>
+        </div>
     </div>
-
-     <div class="mb-3">
-        <label for="Country" class="form-lable">Country</label>
-        <input class="form-control" name="listing[country]" placeholder="India" type="text" required>
-        <div class="valid-feedback">Country looks Good</div>
-        <div class="invalid-feedback">Please Enter Country</div>
-      </div>
-        <button class="btn btn-dark">add</button>
-    </form>
-</div>
-</div>
 </body>

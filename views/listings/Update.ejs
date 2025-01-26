@@ -2,44 +2,100 @@
 <body>
     <div class="row">
         <div class="col-8 offset-2">
-        <h2>Edit your Post</h2>
-     <form method="POST" action="/listings/<%=id%>?_method=PUT" novalidate class="needs-validation">
-    <div class="mb-3">
-        <label for="Title" class="form-lable">Title</label>
-         <input name="listing[title]" value="<%=user.title %>" type="text" class="form-control">
-         <div class="valid-feedback">Title looks Good</div>
-           </div>
-     <div class="mb-3">
-            <label for="image" class="form-lable">Image/URL</label>
-            <input class="form-control" name="listing[image]" value="<%=user.image%>" type="text">
-            <div class="valid-feedback">You can Update after Save</div>
-         </div>
-    <div class="mb-3">
-        <label for="Description" class="form-lable">Description</label>
-        <textarea class="form-control" name="listing[description]" type="text"><%=user.description%></textarea>
-      
-        <div class="valid-feedback"> Description looks Good</div>
-        <div class="invalid-feedback">Please Enter a short Description</div></div>
-    <div class="mb-3">
-         <label for="Price" class="form-lable">Price</label>
-        <input class="form-control" name="listing[price]" type="number" value="<%=user.price %>">
-        <div class="valid-feedback">Price looks Good</div>
-        <div class="invalid-feedback">Please Enter price</div>
+            <!-- Form Heading -->
+            <h2>Edit your Post</h2>
+
+            <!-- Form to update post details (method: PUT for updating data) -->
+            <form method="POST" action="/listings/<%=id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                
+                <!-- Title Field -->
+                <div class="mb-3">
+                    <label for="Title" class="form-lable">Title</label>
+                    <!-- Input field for the post's title, with the current title pre-filled -->
+                    <input name="listing[title]" value="<%=user.title %>" type="text" class="form-control">
+                    <!-- Validation feedback message -->
+                    <div class="valid-feedback">Title looks good</div>
+                </div>
+
+                <!-- Original Image Preview -->
+                <div class="update_original_image">
+                    <p>Original Image</p>
+                    <!-- Display the current image of the post -->
+                    <img src="<%=user.image.url%>" alt="originalImage">
+                </div>
+
+                <!-- Image Upload Field -->
+                <div class="mb-3">
+                    <label for="image" class="form-lable">Image Upload</label>
+                    <!-- Input field to upload a new image -->
+                    <input class="form-control" name="listing[image]" type="file">
+                    <!-- Validation feedback message -->
+                    <div class="valid-feedback">You can update after save</div>
+                </div>
+
+                <!-- Description Field -->
+                <div class="mb-3">
+                    <label for="Description" class="form-lable">Description</label>
+                    <!-- Textarea to update the post's description -->
+                    <textarea class="form-control" name="listing[description]" type="text"><%=user.description%></textarea>
+                    <!-- Validation feedback messages -->
+                    <div class="valid-feedback">Description looks good</div>
+                    <div class="invalid-feedback">Please enter a short description</div>
+                </div>
+
+                <!-- Price Field -->
+                <div class="mb-3">
+                    <label for="Price" class="form-lable">Price</label>
+                    <!-- Input field for the post's price -->
+                    <input class="form-control" name="listing[price]" type="number" value="<%=user.price %>">
+                    <!-- Validation feedback messages -->
+                    <div class="valid-feedback">Price looks good</div>
+                    <div class="invalid-feedback">Please enter a price</div>
+                </div>
+
+                <!-- Category Selection Field -->
+                <div class="mb-3 mt-4">
+                    <label for="Category" class="form-lable">Category</label>
+                    <!-- Dropdown to select the category of the post -->
+                    <select class="form-select" name="listing[category]" id="categories" required>
+                        <option value="" selected disabled>Category</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Castle">Castle</option>
+                        <option value="Amazing pools">Amazing pools</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Treehouse">Treehouse</option>
+                        <option value="Mountain">Mountain</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Luxury Stay">Luxury Stay</option>
+                        <option value="Cave">Cave</option>
+                        <option value="Desert">Desert</option>
+                    </select>
+                </div>
+
+                <!-- Location Field -->
+                <div class="mb-3">
+                    <label for="Location" class="form-lable">Location</label>
+                    <!-- Input field to update the location of the post -->
+                    <input class="form-control" name="listing[location]" type="text" value="<%=user.location %>">
+                    <!-- Validation feedback messages -->
+                    <div class="valid-feedback">Location looks good</div>
+                    <div class="invalid-feedback">Please enter location</div>
+                </div>
+
+                <!-- Country Field -->
+                <div class="mb-3">
+                    <label for="Country" class="form-lable">Country</label>
+                    <!-- Input field to update the country of the post -->
+                    <input class="form-control" name="listing[country]" type="text" value="<%=user.country %>">
+                    <!-- Validation feedback messages -->
+                    <div class="valid-feedback">Country looks good</div>
+                    <div class="invalid-feedback">Please enter country</div>
+                </div>
+
+                <!-- Update Button -->
+                <button class="btn btn-dark">Update</button>
+            </form>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="Location" class="form-lable">Location</label>
-        <input class="form-control" name="listing[location]" type="text" value="<%=user.location %>">
-        <div class="valid-feedback">Location looks Good</div>
-        <div class="invalid-feedback">Please Enter Location</div>
-    </div> 
-    <div class="mb-3">
-        <label for="Country" class="form-lable">Country</label>
-        <input class="form-control" name="listing[country]" type="text" value="<%=user.country %>">
-        <div class="valid-feedback">Country looks Good</div>
-        <div class="invalid-feedback">Please Enter Country</div>
-    </div>
-    <button class="btn btn-dark">Update</button>
-    </form>
-</div>
-</div>
 </body>

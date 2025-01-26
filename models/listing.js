@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review=require("./review.js");
+const { string, required } = require("joi");
 
 const listingSchema = new Schema({
   title: {
@@ -8,10 +9,9 @@ const listingSchema = new Schema({
   },
   description: String,
   image:{
-      type: String,
-      default:"https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyaminmellish-186077.jpg&fm=jpg",
-    set:(v)=>v==="" ? "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyaminmellish-186077.jpg&fm=jpg":v,
-   },
+   url:String,
+   filename:String
+  },
   price:{
     type:Number,
     default:1000,
@@ -25,6 +25,23 @@ const listingSchema = new Schema({
   owner:{
     type:Schema.Types.ObjectId,
     ref:"User"
+},
+category:{
+  type:String,
+  enum:[
+    "Trending",
+    "Rooms",
+    "Castle",
+    "Amazing pools",
+    "Camping",
+    "Treehouse",
+    "Mountain",
+    "Beach",
+    "Luxury Stay",
+    "Cave",
+    "Desert"],
+    required:true,
+  
 }
 });
 listingSchema.post("findOneAndDelete",async(listing)=>{

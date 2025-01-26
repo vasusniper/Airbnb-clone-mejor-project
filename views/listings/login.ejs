@@ -1,28 +1,54 @@
 <%layout("/layouts/template")%>
 <body>
-    <div class="row">
-        <div class="col-6 offset-3">
-            <h3>Login Wanderlust</h3>
-    <form method="POST" action="/login" class="needs-validation" novalidate>
-        <!-- <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" placeholder="Email" name="email"  required>
-        <div class="valid-feedback"> looks Good</div>
-        <div class="invalid-feedback">Please Enter Email</div>
-    </div> -->
-    <div class="mb-3">
-    <label for="username" class="form-label">Username</label>
-       <input type="text" class="form-control" placeholder="Username" name="username" required>
-       <div class="valid-feedback">looks Good</div>
-       <div class="invalid-feedback">Please Enter Username</div>
-       </div>
-       <div class="mb-3">
-       <label for="Password" class="form-label">Password</label>
-        <input type="password" class="form-control" placeholder="Password" name="password" required>
-        <div class="invalid-feedback">Please Enter Password</div>
-    </div>
+  <!-- Main Row Container -->
+  <div class="row">
+    <div class="col-6 offset-3">
+      <!-- Login Heading -->
+      <h3>Login to Wanderlust</h3>
+      
+      <!-- Login Form -->
+      <form method="POST" action="/login" class="needs-validation" novalidate>
+        
+        <!-- Username Input Field -->
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" placeholder="Username" name="username" required>
+          <!-- Validation Messages -->
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter a username.</div>
+        </div>
+        
+        <!-- Password Input Field -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="password" required>
+          <!-- Validation Message -->
+          <div class="invalid-feedback">Please enter a password.</div>
+        </div>
+        
+        <!-- Submit Button -->
         <button class="btn btn-success">Login</button>
-    </form>
-</div>
-</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Validation -->
+  <script>
+    // Bootstrap Form Validation
+    (() => {
+      const forms = document.querySelectorAll('.needs-validation'); // Select all forms with validation class
+
+      // Loop over forms and prevent submission if invalid
+      Array.from(forms).forEach((form) => {
+        form.addEventListener('submit', (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault(); // Prevent form submission
+            event.stopPropagation(); // Stop further event propagation
+          }
+
+          form.classList.add('was-validated'); // Add Bootstrap validation styles
+        });
+      });
+    })();
+  </script>
 </body>
