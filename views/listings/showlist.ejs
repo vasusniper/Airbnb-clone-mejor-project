@@ -28,7 +28,7 @@
             </div>
 
             <!-- Show Edit and Delete Options if Current User is the Owner -->
-            <% if(currUser._id.toString() === listInfo.owner._id.toString()) { %>
+            <% if(currUser && currUser._id.toString() === listInfo.owner._id.toString()) { %>
             <div class="row">
                 <!-- Delete Listing Form -->
                 <div class="col-2">
@@ -60,7 +60,7 @@
                         </p>
                     </div>
                     <!-- Show Delete Option if Current User is the Review Author -->
-                    <% if(currUser._id.toString() === review.author._id.toString()) { %>
+                    <% if(currUser && currUser._id.toString() === review.author._id.toString()) { %>
                     <div>
                         <form method="POST" action="/listings/<%=listInfo._id%>/reviews/<%=review._id%>?_method=DELETE">
                             <button class="btn btn-outline-dark" onclick="return confirm('Are you sure you want to delete this review?')">delete</button>
