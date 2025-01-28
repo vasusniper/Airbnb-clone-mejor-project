@@ -2,7 +2,7 @@
 <body>
     <!-- Main Container for Listing Details -->
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class=" col-12 col-lg-8 offset-lg-2">
             <h2>Listing Detail</h2>
             <!-- Display Owner's Username -->
             <p>Ownername: <%=listInfo.owner.username %></p>
@@ -31,13 +31,13 @@
             <% if(currUser && currUser._id.toString() === listInfo.owner._id.toString()) { %>
             <div class="row">
                 <!-- Delete Listing Form -->
-                <div class="col-2">
+                <div class="col-6 col-lg-2">
                     <form method="POST" action="/listings/<%=listInfo._id%>?_method=DELETE">
                         <button class="btn btn-dark">DELETE</button>
                     </form>
                 </div>
                 <!-- Update Listing Button -->
-                <div class="col-4">
+                <div class="col-6 col-lg-4">
                     <a href="/listings/<%=listInfo._id%>/edit" class="btn btn-success">Update</a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             <div class="row">
                 <% for(review of listInfo.reviews) { %>
                 <!-- Card for Each Review -->
-                <div class="card col-5 mb-3 ms-2">
+                <div class="card col-12 col-lg-5 mb-3 ms-lg-2">
                     <div class="card-body">
                         <!-- Display Review Author -->
                         <p><b>@<%=review.author.username.toUpperCase() %></b></p>
@@ -100,11 +100,6 @@
                 <!-- Submit Button -->
                 <button class="btn btn-outline-dark mb-3">Submit</button>
             </form>
-
-            <!-- Placeholder for Map API Integration -->
-            <div>
-                Choose location
-            </div>
         </div>
     </div>
 </body>
